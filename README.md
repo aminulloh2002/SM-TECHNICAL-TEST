@@ -1,67 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+```
+PHP_VERSION = 8.2.2
+MYSQL_VERSION = 5.7.24
+LARAVEL_VERSION = 10.0
+COMPOSER_VERSION= 2.4.1
+```
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## INSTALATION
 
-## About Laravel
+-   clone this project
+-   move to project directory and run `composer install`
+-   create a new database
+-   rename .env.example to .env
+-   update database values in the .env file with your database credentials
+-   run `php artisan key:generate`
+-   run `php artisann migrate`
+-   run `php artisan db:seed`
+-   run `php artisan serve`
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Available Roles
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   admin, can access all featues except approving vehicle order
+-   approver, can only approving vehicle order
+-   employee, can order vehicle and see their own orders statistics
+-   supervisor, approve vehicle order and see fuel usage and vehicle order statistics of all users
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## User Credentials
 
-## Learning Laravel
+### Admin
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   email: admin@mail.com
+-   password: password
+-   role: admin
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Supervisor
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   email: supervisor@mail.com
+-   password: password
+-   role: supervisor
 
-## Laravel Sponsors
+### Employee
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+-   email: employee@mail.com
+-   password: password
+-   role: employee
 
-### Premium Partners
+### Approver 1
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-   email: approver@mail.com
+-   password: password
+-   role: approver
 
-## Contributing
+### Approver 2
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   email: approver2@mail.com
+-   password: password
+-   role: approver
 
-## Code of Conduct
+### Approver 3
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   email: approver3@mail.com
+-   password: password
+-   role: approver
 
-## Security Vulnerabilities
+## Usage flow
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# SM-TECHNICAL-TEST
+-   Employee or admin order vehicle (you will need to select approver here), after that, the order status will be pending
+-   login with approver account (the one that you selecte when you create the order)
+-   you can approve or reject using the approver account,
+-   if you reject, the order will be rejected
+-   when you approve the order, the order status will changed to "Waiting for supervisor approval)
+-   as you guess it, you need to login using supervisor account and then approve or reject the order,
+-   if you approve, the order status will changed to "Approved"

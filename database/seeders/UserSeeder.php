@@ -38,16 +38,16 @@ class UserSeeder extends Seeder
 
         $approver2->assignRole('approver');
 
-        // $approver3 = User::create([
-        //     'name' => 'Junior Approver',
-        //     'email' => 'approver3@mail.com',
-        //     'password' => bcrypt('password'),
-        // ]);
+        $approver3 = User::create([
+            'name' => 'Approver 3',
+            'email' => 'approver3@mail.com',
+            'password' => bcrypt('password'),
+        ]);
 
-        // $approver3->assignRole('approver');
+        $approver3->assignRole('approver');
 
         $supervisor = User::create([
-            'name' => 'Senior Supervisor 1',
+            'name' => 'Supervisor',
             'email' => 'supervisor@mail.com',
             'password' => bcrypt('password'),
         ]);
