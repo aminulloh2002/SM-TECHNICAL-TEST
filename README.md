@@ -1,3 +1,7 @@
+Physical Data Model : https://aminulloh2002.github.io/assets/PhysicalDataModel.pdf
+<br>
+Order Activity Diagram: https://aminulloh2002.github.io/assets/VehicleOrderActivityDiagram.pdf
+
 ```
 PHP_VERSION = 8.2.2
 MYSQL_VERSION = 5.7.24
@@ -46,7 +50,7 @@ COMPOSER_VERSION= 2.4.1
 
 ### Approver 1
 
--   email: approver@mail.com
+-   email: approver1@mail.com
 -   password: password
 -   role: approver
 
@@ -62,7 +66,7 @@ COMPOSER_VERSION= 2.4.1
 -   password: password
 -   role: approver
 
-## Usage flow
+## Vehicle Order flow
 
 -   Employee or admin order vehicle (you will need to select approver here), after that, the order status will be pending
 -   login with approver account (the one that you selecte when you create the order)
